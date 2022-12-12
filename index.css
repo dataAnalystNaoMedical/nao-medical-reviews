@@ -1,0 +1,96 @@
+body{
+    background-color: #121e28;
+    color: cyan;
+
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#dateSelector{
+    align-self: center;
+    text-align: center;
+    max-width: 300px;
+    margin-bottom: 1%;
+}
+#myTitle{
+    color: #121e28;
+    text-align: center;
+}
+
+#getData{
+    font: 2em 'Courier New', Courier, monospace;
+    cursor: pointer;
+    height: 70px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1%;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-image: url("https://www.naomedical.com/wp-content/themes/naomedical_theme/assets/images/naoMedicalLogo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#getData{
+    background-color: #121e28;
+    color: aliceblue;
+}
+#getData:hover{
+    font: 2em 'Courier New', Courier, monospace;
+    background-color: #fcfda1;
+    color: rgb(7, 4, 4);
+    background-image: none;
+}
+
+#reviews_data{
+    padding-top: 20px;
+    min-height: 1000px;
+    background-color: aliceblue;
+}
+
+#tableData{
+    padding-right: 20px;
+    padding-left: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 1%;
+    background-color: darkslategrey;
+    color: rgb(90, 178, 255);
+    /* font-size: 1.11em; */
+    font-size: 0.99em;
+}
+
+#tableTopic_length , #tableTopic_filter{
+    color: cyan;
+}
+
+table.dataTable, table.dataTable th, table.dataTable td{
+    background-color: #121e28;
+    box-sizing: content-box;
+}
+label {
+    margin-bottom: 10px;
+    display: inline-block;
+    margin-top: 10px;
+    color: aqua;
+}
+table.dataTable.display tbody td {
+    background-color: #121e28;
+}
+/* for default sorted class */
+table .sorting_1{
+    font-size: large;
+    color: black;
+    background-color: #dadada;
+}
+/* input type search -- search input box */
+input[type=search] {
+    color: rgb(27, 145, 255);
+    background-color: #dadada;
+    outline-offset: -2px;
+    -webkit-appearance: textfield;
+}
