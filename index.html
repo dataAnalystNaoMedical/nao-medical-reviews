@@ -25,8 +25,8 @@
     <div class="main">
         <div id="myTitle">Select Date Range to get reviews</div>
         <div id="dateSelector">
-            <input id="dateSelector1" value="2022-10-01" type="date" ></input>
-            <input id="dateSelector2" value="2022-10-20" type="date" ></input>
+            <input id="dateSelector1" type="date"></input>
+            <input id="dateSelector2" type="date"></input>
         </div>
         <div id="getData">Click to fetch reviews</div>
         <script>
@@ -36,15 +36,15 @@
         </script>
         <div id="tableData">
             <table id="tableTopic" class="display" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Review</th>
-                    <th>Owner</th>
-                    <th>Location</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Review</th>
+                        <th>Owner</th>
+                        <th>Location</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
             </table>
         </div>
         <!-- <div id="reviews_data">- reviews will render here -</div> -->
@@ -52,3 +52,10 @@
 </body>
 
 </html>
+<script>
+    const today = new Date();
+    let dateReview1 = document.getElementById('dateSelector1');
+    let dateReview2 = document.getElementById('dateSelector2');
+    dateReview2.value = new Date(today.getTime() + (60*60*24*1*1000)).toISOString().substring(0, 10);
+    dateReview1.value = new Date(today.getTime() - (60*60*24*2*1000)).toISOString().substring(0, 10);
+</script>
