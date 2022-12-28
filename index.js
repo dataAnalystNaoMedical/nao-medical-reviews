@@ -71,7 +71,8 @@ function setDataToTable(jsonData) {
                 "data": "created_on",
                 render: function (data) {
                     // return new Date(data).toLocaleString('default', {month:'long', year:'numeric', day:'numeric', hour: 'numeric', minute:'numeric'});
-                    return new Date(data).toLocaleString();
+                   // return new Date(data).toLocaleString();
+                    return new Date(data);
                 }
             },
             {
