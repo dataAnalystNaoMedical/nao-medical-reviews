@@ -74,8 +74,11 @@ function setDataToTable(jsonData) {
                 render: function (data) {
                     // return new Date(data).toLocaleString('default', {month:'long', year:'numeric', day:'numeric', hour: 'numeric', minute:'numeric'});
                    // return new Date(data).toLocaleString();
-                    return new Date(data);
+//                     return new Date(data);
 //                     return new Date(data).toDateString();
+                    return new Date(data).toLocaleString('en-US', {
+                      timeZone: 'America/New_York',
+                    });
                 }
             },
             {
