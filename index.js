@@ -1,4 +1,38 @@
 // set default dates in datepickers
+const reqBody = JSON.stringify({
+    "dataSource": "Cluster0",
+    "database": "naoMedical",
+    "collection": "reviews",
+    "pipeline": [
+      {
+        "$project": {
+          "review": 1,
+          "rating": 1,
+          "updateTime": 1,
+          "location_name": 1,
+          "created_on": 1,
+          "owner": 1
+        }
+      },
+      {
+        "$addFields": {
+          "created_at": {
+            "$dateFromString": {
+              "dateString": "$updateTime"
+            }
+          }
+        }
+      },
+      {
+        "$sort": {
+          "updateTime": -1
+        }
+      },
+      {
+        "$limit": 10
+      }
+    ]
+  });
 
 
 console.log(" running now at ", new Date());
@@ -13,15 +47,16 @@ async function reviewsFetch(forDate) {
     // });
 
     /* vercel api hosted  : https://nao-medical-reviews-dubeyji.vercel.app/api/getAll */
-    const reviewsDataRaw = await fetch("https://nao-medical-reviews-dubeyji.vercel.app/api/customQueryDate", {
+    const reviewsDataRaw = await fetch("https://data.mongodb-api.com/app/data-firwq/endpoint/data/v1/action/aggregate", {
         
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
-          'Content-Type': 'application/json'
-          // 'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
+          'api-key':'NEQ51O0oeZJOLpLB2vw1pAR8BPQelGv4JduUMasFN9RHpPMa9w1MJqK1EmXQzauU',
+          'Access-Control-Request-Headers':'*'
         },
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
